@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => "sessions#welcome"
   resources :games
   resources :reviews
   resources :genres
