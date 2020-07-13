@@ -4,4 +4,7 @@ class User < ApplicationRecord
   has_many :games #these are games that the user created; gives us @user.games
 
   has_secure_password
+
+  validates :username, uniqueness: true, presence: true
+  #has_secure_password validates our password 
 end
