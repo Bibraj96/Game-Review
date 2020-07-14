@@ -7,11 +7,14 @@
   <p> Choose an existing genre for this game: </p>
   <%= f.collection_select :genre_id, Genre.all, :id, :name%>
 
-  <p> Create a new brand for this game: </p>
+  <p> Create a new genre for this game: </p>
   <%= f.fields_for :genre do |genre| %>
     <%= genre.label :name %>
     <%= genre.text_field :name %>
+
   <% end %>
+
   <br><br>
+
   <%= f.submit %>
 <% end %>
