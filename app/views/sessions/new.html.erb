@@ -1,0 +1,16 @@
+<h1>Login!</h1>
+
+<h4><%= flash[:error] %></h4>
+
+<%= form_for(:user) do |f| %> <!-- because we're not creating a user, we can just pass the symbol of user instead of an instance variable -->
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password%>
+
+  <%= f.submit "Log in!" %>
+<% end %>
