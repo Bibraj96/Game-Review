@@ -1,6 +1,12 @@
 class ReviewsController < ApplicationController
 
   def index
+    #if it's nested and the id is valid
+    if @game = Game.find_by_id(params[:game_id])
+      @reviews = @game.reviews
+    else
+      @reviews = Review.all
+    end
   end
 
   def new
