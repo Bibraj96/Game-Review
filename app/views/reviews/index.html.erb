@@ -1,1 +1,7 @@
 <h1>All Reviews</h1>
+<ul>
+<% @reviews.each do |review| %>
+  <li><%= review.game.title %><br></li>
+  Score: <%= review.rating %>/10
+<% end %>
+</ul>
