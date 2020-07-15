@@ -3,6 +3,7 @@
 <ul>
 <% @games.each do |game| %>
   <li><strong><%= game.title %></strong></li>
-  Genre: <%= game.genre.name %>
+  Genre: <%= game.genre.name %><br>
+  <%= link_to "Review this game!", new_game_review_path(game) %>
 <% end %>
 </ul>
