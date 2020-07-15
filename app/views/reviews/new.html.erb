@@ -1,4 +1,9 @@
-<h1>Create a Review for <%= @review.game.title %>!</h1>
+<% if params[:game_id] %>
+  <h1>Create a Review for <%= @review.game.title %>!</h1>
+<% else %>
+  <h1>Create a New Review!</h1>
+<% end %>
+<!-- Need to add another nested resource here to choose or create a new game to review; can't write a review for nothing -->
 
 <%= form_for(@review) do |f| %>
   <%= f.label :rating %>
