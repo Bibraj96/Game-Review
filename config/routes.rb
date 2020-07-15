@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   delete '/logout' => 'sessions#destroy'
   
-  resources :games
+  resources :games do
+    resources :reviews, only: [:new, :index]
+  end
   resources :reviews
   resources :genres
   resources :users
