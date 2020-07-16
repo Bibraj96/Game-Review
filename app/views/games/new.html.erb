@@ -1,5 +1,7 @@
 <h1>Add a New Game to Review!</h1>
 
+<%= render 'layouts/errors', locals: {object: @game} %>
+
 <%= form_for(@game) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
