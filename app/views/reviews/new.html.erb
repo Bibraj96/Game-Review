@@ -5,6 +5,8 @@
 <% end %>
 <!-- Need to add another nested resource here to choose or create a new game to review; can't write a review for nothing -->
 
+<%= render 'layouts/errors', locals: {object: @review} %>
+
 <%= form_for(@review) do |f| %>
   <%= f.label :rating %>
   <%= f.number_field :rating, min: 0, max: 10 %> out of 10
