@@ -13,4 +13,8 @@ class Game < ApplicationRecord
     self.genre
   end
 
+  def self.order_alph
+    order(:title)
+  end
+
 end
