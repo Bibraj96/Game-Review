@@ -4,5 +4,13 @@ class Game < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews #users who have reviewed the games
 
-  accepts_nested_attributes_for :genre 
+  validates :title, presence :true
+
+  #accepts_nested_attributes_for :genre 
+
+  def genre_attributes(att)
+    genre = Genre.find_or_create_by(att) if
+      !att['name'].empty?
+  end
+
 end
