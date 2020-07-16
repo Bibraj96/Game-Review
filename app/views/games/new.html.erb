@@ -7,7 +7,7 @@
   <%= f.text_field :title %>
 
   <p> Choose an existing genre for this game: </p>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name%>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
 
   <p> Create a new genre for this game: </p>
   <%= f.fields_for :genre do |genre| %>
