@@ -12,6 +12,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.user_id = session[:user_id]
+
     if @game.save
       redirect_to game_path(@game)
     else
@@ -21,6 +22,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by(params[:id])
+    redirect_to games_path
   end
 
   private
