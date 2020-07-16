@@ -9,7 +9,7 @@
     <%= f.hidden_field :game_id %>
   <% else %>
     <%= f.label :game_id, "Choose a Game" %>
-    <%= f.collection_select :game_id, Game.all, :id, :title, include_blank: true %>
+    <%= f.collection_select :game_id, Game.order_alph, :id, :title, include_blank: true %>
   <% end %><br>
   
   <%= f.label :rating %>
