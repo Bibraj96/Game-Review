@@ -1,13 +1,17 @@
-<% if params[:game_id] %>
-  <h1>Create a Review for <%= @review.game.title %>!</h1>
-<% else %>
-  <h1>Create a New Review!</h1>
-<% end %>
+<h1>Create a New Review!</h1>
+
 <!-- Need to add another nested resource here to choose or create a new game to review; can't write a review for nothing -->
 
 <%= render partial: 'layouts/errors', locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
+  <% if params[:game_id] %>
+    <%= f.hidden_field :game_id %>
+  <% else %>
+    <%= f.label :game_id, "Choose a Game" %>
+    <%= f.collection_select :game_id, Game.all, :id, :title, include_blank: true %>
+  <% end %><br>
+  
   <%= f.label :rating %>
   <%= f.number_field :rating, min: 0, max: 10 %> out of 10
 
