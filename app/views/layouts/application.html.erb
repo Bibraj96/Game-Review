@@ -10,6 +10,7 @@
   </head>
 
   <div>
+    <%= link_to "My Profile", user_path(current_user)%>
     <%= link_to "New Game", new_game_path %>
     <%= link_to "New Review", new_review_path %>
     <%= link_to "All Games", games_path %>
