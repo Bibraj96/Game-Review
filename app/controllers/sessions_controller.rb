@@ -20,10 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    @user = User.find_or_create_by(username: auth[:info][:email]) do |u| #OR: User.where(email: auth[:info][:email]).first_or_initialize
-      u.email = auth[:info][:email]
-      u.password = SecureRandom.hex #creates a random password
-    end
+    @user = User.find_or_create_by_google(auth)
 
     session[:user_id] = @user.id
     redirect_to user_path(@user)
