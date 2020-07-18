@@ -19,6 +19,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def omniauth
+    byebug
+  end
+
   def destroy
     session.delete(:user_id) # #destroy is mainly used for objects
     redirect_to '/'
