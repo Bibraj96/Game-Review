@@ -5,6 +5,7 @@ class Game < ApplicationRecord
   has_many :users, through: :reviews #users who have reviewed the games
 
   validates :title, presence: true
+  validates :title, uniqueness: true
 
   #accepts_nested_attributes_for :genre 
 
