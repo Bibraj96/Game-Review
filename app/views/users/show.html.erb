@@ -2,11 +2,9 @@
 <h2>Reviews by <%= @user.username %>:</h2>
 
 <ul>
-<% @user.reviewed_games.each do |game| %>
-  <li><%= game.title %></li><br>
-  <% game.reviews.each do |review| %>
-    <%= review.content %><br>
-  <% end %>
+<% @user.reviews.each do |review| %>
+  <li><%= review.game.title %></li><br>
+  <%= review.content %><br>
   <br>
 <% end %>
 </ul>
