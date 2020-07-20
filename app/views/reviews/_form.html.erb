@@ -1,0 +1,22 @@
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
+
+<%= form_for(@review) do |f| %>
+  <% if params[:game_id] %>
+    <%= f.hidden_field :game_id %>
+  <% else %>
+    <%= f.label :game_id, "Choose a Game" %>
+    <%= f.collection_select :game_id, Game.order_alph, :id, :title, include_blank: true %>
+  <% end %><br>
+  
+  <%= f.label :rating %>
+  <%= f.number_field :rating, min: 0, max: 10 %> out of 10
+
+  <br>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, size: "50x10" %>
+
+  <br>
+
+  <%= f.submit %>
+<% end %>
