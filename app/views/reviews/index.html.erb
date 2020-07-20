@@ -3,6 +3,6 @@
 <% @reviews.each do |review| %>
   <li><%= link_to review.game.title, review_path(review) %><br></li>
   Score: <%= review.rating %>/10<br>
-  Author: <%= review.user.username %>
+  Author: <%= link_to review.user.username, user_path(review.user) %>
 <% end %>
 </ul>
