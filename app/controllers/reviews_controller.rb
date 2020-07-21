@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
+
   before_action :find_review, only:[:show, :edit, :update]
+  before_action :not_logged_in?
   def index
     #if it's nested and the id is valid
     if @game = Game.find_by_id(params[:game_id])
