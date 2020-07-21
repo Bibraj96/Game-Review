@@ -3,4 +3,4 @@
 <p><%= @review.content %></p>
 <p>Written By: <%= @review.user.username %></p>
 <%= link_to "Edit Review", edit_review_path(@review) if @review.user == current_user%><br>
-<%= link_to 'Delete Review', review_path(@review), method: :delete, data: { confirm: "Are you sure?" } if @review.user == current_user %>
+<%= button_to 'Delete Review', review_path(@review), method: :delete, data: { confirm: "Are you sure?" } if @review.user == current_user %>
