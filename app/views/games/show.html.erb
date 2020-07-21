@@ -1,3 +1,8 @@
-<h1><%= @game.title %></h1>
-<h3>Genre: <%= @game.genre.name %></h3> 
-<%= link_to "See all Reviews", game_reviews_path(@game) %>
+<% if  @game.reviews.count != 0%>
+  <h1><%= @game.title %></h1> 
+  <h3>Genre: <%= @game.genre.name %></h3> 
+  <%= link_to "See all Reviews", game_reviews_path(@game) %>
+<% else %>
+  <h1>No reviews have been written for <%= @game.title %><h1>
+  <h3><%= link_to 'Write the first review!', new_game_review_path(@game) %></h3>
+<% end %>
