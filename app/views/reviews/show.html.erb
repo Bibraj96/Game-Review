@@ -2,4 +2,5 @@
 <h2>Score: <%= @review.rating %>/10</h2>
 <p><%= @review.content %></p>
 <p>Written By: <%= @review.user.username %></p>
-<%= link_to "Edit Review", edit_review_path(@review) if @review.user == current_user%>
+<%= link_to "Edit Review", edit_review_path(@review) if @review.user == current_user%><br>
+<%= link_to 'Delete Review', review_path(@review), method: :delete, data: { confirm: "Are you sure?" } %>
