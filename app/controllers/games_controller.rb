@@ -21,7 +21,10 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    if @game = Game.find_by_id(params[:id])
+    else
+      redirect_to games_path
+    end
   end
 
   private
