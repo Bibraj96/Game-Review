@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  before_action :find_review, only:[:show, :edit, :update]
   def index
     #if it's nested and the id is valid
     if @game = Game.find_by_id(params[:game_id])
@@ -27,15 +27,12 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find_by_id(params[:id])
   end
 
   def edit
-    @review = Review.find_by_id(params[:id])
   end
 
   def update
-    @review = Review.find_by_id(params[:id])
     if @review.update(review_params)
       redirect_to review_path(@review)
     else
@@ -55,4 +52,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :content, :game_id)
   end
 
+  def find_review
+    @review = Review.find_by_id(params[:id])
+  end
 end
