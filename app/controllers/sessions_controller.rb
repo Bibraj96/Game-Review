@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id # store their id into the session key (log them in)
       redirect_to user_path(@user)
     else
-      flash[:error] = "Incorrect login credentials. Please try again!"
+      flash[:error] = "Sorry, login info was incorrect. Please try again."
       redirect_to login_path
     end
   end

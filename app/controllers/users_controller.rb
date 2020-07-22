@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    @user = User.new # You get the NilClass error when @user has no value (it's nil) when you first load the form on the new action.
   end
 
   def create

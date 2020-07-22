@@ -2,7 +2,7 @@
 <h1>Welcome to Game Review!</h1>
 <h3>Login!</h3>
 
-<h4><%= flash[:error] %></h4>
+<p><%= flash[:error] %></p>
 
 <%= form_for(:user) do |f| %> <!-- because we're not creating a user, we can just pass the symbol of user instead of an instance variable -->
   <%= f.label :email %>
