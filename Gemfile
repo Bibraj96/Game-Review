@@ -26,6 +26,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails' #lets us use the dotenv file for our secrets and have access to it in our app without pushing to github
 
+gem 'bootstrap-sass', '~> 3.4.1'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
