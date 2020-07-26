@@ -16,7 +16,8 @@ class GamesController < ApplicationController
     if @game.save
       redirect_to game_path(@game), :flash => { :notice => "Your game was created!"}
     else
-      render :new
+      @game.build_genre # keeps new genre field from disappearing after validation error
+      render :action => 'new'
     end
   end
 
