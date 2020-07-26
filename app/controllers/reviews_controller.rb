@@ -35,7 +35,11 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
+  def edit 
+    if current_user.id == @review.user_id
+    else 
+      redirect_to reviews_path,  :flash => { :alert => "You can only edit your own reviews!"}
+    end
   end
 
   def update
