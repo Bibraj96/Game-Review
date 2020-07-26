@@ -1,9 +1,17 @@
-<h1>All Games</h1>
+<div class="title-container">
+  <h1>All Games</h1>
+</div>
 
-<ul>
-<% @games.each do |game| %>
-  <li><strong><%= link_to game.title, game_path(game) %></strong></li>
-  Genre: <%= game.genre.name %><br>
-  <%= link_to "Review this game!", new_game_review_path(game) %>
-<% end %>
-</ul>
+<div class="games" align="center">
+  <% @games.each do |game| %>
+    <div class="game">
+      <div class="thumbnail">
+        <div class="caption">
+          <strong><%= link_to game.title, game_path(game) %></strong></li><br>
+          Genre: <%= game.genre.name %><br>
+          <%= link_to "Review this game!", new_game_review_path(game) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

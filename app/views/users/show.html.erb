@@ -1,10 +1,15 @@
 <h1><%= @user.username %>'s Profile!</h1>
-<h2>Reviews by <%= @user.username %>:</h2>
 
-<ul>
-<% @user.reviews.each do |review| %>
-  <li><%= review.game.title %></li><br>
-  <%= review.content %><br>
-  <br>
-<% end %>
-</ul>
+<div class="users" align="center">
+  <% @user.reviews.each do |review| %>
+    <div class="user">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><%= review.game.title %></h3>
+          <p>Score: <%= review.rating %>/10</p>
+          <p><%= review.content %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

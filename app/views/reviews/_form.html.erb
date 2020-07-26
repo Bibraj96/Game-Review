@@ -4,19 +4,26 @@
   <% if params[:game_id] %>
     <%= f.hidden_field :game_id %>
   <% else %>
-    <%= f.label :game_id, "Choose a Game" %>
-    <%= f.collection_select :game_id, Game.order_alph, :id, :title, include_blank: true %>
+    <div class="form-group" style="max-width:400px">
+      <%= f.label :game_id, "Choose a Game" %>
+      <%= f.collection_select :game_id, Game.order_alph, :id, :title, {include_blank: true}, {class: "form-control"} %>
+    </div>
   <% end %><br>
   
-  <%= f.label :rating %>
-  <%= f.number_field :rating, min: 0, max: 10 %> out of 10
+  <div class="form-group" style="max-width:110px">
+    <%= f.label :rating %> out of 10
+    <%= f.number_field :rating, min: 0, max: 10, class: "form-control container" %>
+  </div>
 
   <br>
 
-  <%= f.label :content %>
-  <%= f.text_area :content, size: "50x10" %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "50x10", class: "form-control" %>
+  </div>
 
   <br>
-
-  <%= f.submit %>
+  <div class="actions">
+  <%= f.submit class: "btn btn-primary" %>
+  </div>
 <% end %>

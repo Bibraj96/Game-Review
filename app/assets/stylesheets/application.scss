@@ -1,2 +1,40 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.review {
+  width: 30%;
+  min-width: 300px;
+}
+
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.game {
+  width: 30%;
+  min-width: 300px;
+}
+
+.user {
+  width: 55%;
+  min-width: 300px;
+}

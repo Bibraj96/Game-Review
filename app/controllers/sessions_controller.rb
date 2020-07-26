@@ -13,9 +13,9 @@ class SessionsController < ApplicationController
     # was a user found? did they use the right password?
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id # store their id into the session key (log them in)
-      redirect_to user_path(@user)
+      redirect_to user_path(@user),  :flash => { :notice => "Welcome!"}
     else
-      flash[:error] = "Sorry, login info was incorrect. Please try again."
+      flash[:error] = "Unable to log in. Please make sure all fields are filled in correctly!"
       redirect_to login_path
     end
   end

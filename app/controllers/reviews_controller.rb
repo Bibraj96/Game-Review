@@ -22,13 +22,17 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build(review_params)
     if @review.save
-      redirect_to review_path(@review)
+      redirect_to review_path(@review), :flash => { :notice => "Your review was created!"}
     else
       render :new
     end
   end
 
   def show
+    if @review = Review.find_by_id(params[:id])
+    else
+      redirect_to reviews_path, :flash => { :alert => "That review doesn't exist!"}
+    end
   end
 
   def edit
@@ -36,7 +40,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to review_path(@review)
+      redirect_to review_path(@review), :flash => { :notice => "Your review was edited!"}
     else
       render :edit
     end
@@ -45,7 +49,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find_by_id(params[:id])
     @review.destroy
-    redirect_to user_path(@review.user)
+    redirect_to user_path(@review.user), :flash => { :notice => "Your review was deleted!"}
   end
 
   private

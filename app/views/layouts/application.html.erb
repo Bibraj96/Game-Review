@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>GameReview</title>
     <%= csrf_meta_tags %>
@@ -7,13 +7,39 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <div>
-    <%= navigation %>
-  </div>
+  <% if logged_in? %>
+    <header class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          <%= link_to "Game Review", user_path(current_user), class: "navbar-brand" %>
+          </div>
+          <div class="nav navbar-nav navbar-right">
+            <%= navigation %>
+          </div>
+        </div>
+      </nav>
+    </header>
+  <% end %>
 
-  <body>
+  <body class="container">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <h4><%= flash[:notice] %></h4>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <h4><%= flash[:alert] %></h4>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-danger">
+        <h4><%= flash[:error] %></h4>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

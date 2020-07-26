@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def not_logged_in?
     if !logged_in?
-      redirect_to login_path
+      redirect_to login_path, :flash => { :alert => "You must be logged in to view this page!"}
     end
   end
 

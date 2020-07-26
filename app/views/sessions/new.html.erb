@@ -1,18 +1,24 @@
-<%= link_to "Home", "/" %>
+<h4><%= link_to "Home", "/" %></h4>
 <h1>Welcome to Game Review!</h1>
 <h3>Login!</h3>
 
-<p><%= flash[:error] %></p>
-
 <%= form_for(:user) do |f| %> <!-- because we're not creating a user, we can just pass the symbol of user instead of an instance variable -->
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <div class="form-group" style="max-width:250px">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+  </div>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <div class="form-group" style="max-width:250px">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control" %>
+  </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password%>
+  <div class="form-group" style="max-width:250px">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
 
-  <%= f.submit "Log in!" %>
+  <div class="actions">
+  <%= f.submit "Log in", class: "btn btn-primary" %>
+  </div>
 <% end %>

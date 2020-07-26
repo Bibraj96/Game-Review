@@ -1,8 +1,17 @@
-<h1>All Reviews</h1>
-<ul>
-<% @reviews.each do |review| %>
-  <li><%= link_to review.game.title, review_path(review) %><br></li>
-  Score: <%= review.rating %>/10<br>
-  Author: <%= link_to review.user.username, user_path(review.user) %>
-<% end %>
-</ul>
+<div class="title-container">
+  <h1>All Reviews</h1>
+</div>
+
+<div class="reviews" align="center">
+  <% @reviews.each do |review| %>
+    <div class="review">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><%= link_to review.game.title, review_path(review) %></h3>
+          <p>Score: <%= review.rating %>/10</p>
+          <p>Reviewer: <%= link_to review.user.username, user_path(review.user) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

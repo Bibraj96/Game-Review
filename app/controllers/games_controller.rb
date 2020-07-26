@@ -14,7 +14,7 @@ class GamesController < ApplicationController
     @game.user_id = session[:user_id]
 
     if @game.save
-      redirect_to game_path(@game)
+      redirect_to game_path(@game), :flash => { :notice => "Your game was created!"}
     else
       render :new
     end
@@ -23,7 +23,7 @@ class GamesController < ApplicationController
   def show
     if @game = Game.find_by_id(params[:id])
     else
-      redirect_to games_path
+      redirect_to games_path, :flash => { :alert => "That game doesn't exist!"}
     end
   end
 
