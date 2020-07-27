@@ -9,7 +9,7 @@ A site to rate and review video games! You can:
 
 ## Installation
 
-To user this site, clone this repo and then run `bundle`
+To use this site, clone this repo and then run `bundle`
 
 ## Usage
 
