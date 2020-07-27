@@ -4,7 +4,7 @@ A site to rate and review video games! You can:
 
 * Add games to review
 * Add genres
-* CRUD (Create, Read, Update, and Delete) you reviews
+* CRUD (Create, Read, Update, and Delete) your reviews
 * View other users' reviews
 
 ## Installation
