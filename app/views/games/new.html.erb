@@ -11,7 +11,7 @@
   </div>
 
   <p> Choose an existing genre for this game: </p>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: 'Choose a Genre'}, {class: "form-control"}%>
+  <%= f.collection_select :genre_id, Genre.order_alph, :id, :name, {include_blank: 'Choose a Genre'}, {class: "form-control"}%>
 
   <p> Or create a new genre for this game: </p>
 
