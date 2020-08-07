@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
-  before_action :find_review, only:[:show, :edit, :update]
+  before_action :find_review, only:[:show, :edit, :update, :destroy]
   before_action :not_logged_in?
+  
   def index
     #if it's nested and the id is valid
     if @game = Game.find_by_id(params[:game_id])
@@ -51,7 +52,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find_by_id(params[:id])
     @review.destroy
     redirect_to user_path(@review.user), :flash => { :notice => "Your review was deleted!"}
   end
