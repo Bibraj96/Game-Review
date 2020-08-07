@@ -1,4 +1,4 @@
-<% if  @game.reviews.count != 0%>
+<% if  @game.reviews.any?%>
   <h1><%= @game.title %></h1> 
   <h3>Genre: <%= @game.genre.name %></h3> 
   <%= link_to "See all Reviews", game_reviews_path(@game) %>
