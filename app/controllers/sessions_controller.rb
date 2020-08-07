@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id) # use #delete b/c #destroy is mainly used for objects
+    session.delete(:user_id) # use #delete here, #destroy is mainly used for objects
     redirect_to '/'
   end
 
