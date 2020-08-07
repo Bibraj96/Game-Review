@@ -8,11 +8,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # does the user exist in the database?
-    @user = User.find_by(username: params[:user][:username]) # better to user find_by b/c you can use a key/value pair and doesn't throw an error
-    # was a user found? did they use the right password?
+    @user = User.find_by(username: params[:user][:username]) # better to user find_by b/c you can use a key/value pair/doesn't throw an error
     if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id # store their id into the session key (log them in)
+      session[:user_id] = @user.id
       redirect_to user_path(@user),  :flash => { :notice => "Welcome!"}
     else
       flash[:error] = "Unable to log in. Please make sure all fields are filled in correctly!"
@@ -28,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id) # #destroy is mainly used for objects
+    session.delete(:user_id) # use #delete b/c #destroy is mainly used for objects
     redirect_to '/'
   end
 
